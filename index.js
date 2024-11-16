@@ -1,10 +1,7 @@
-const express = require('express');
-const { resolve } = require('path');
-const cors = require('cors');
+let express = require('express');
+let cors = require('cors');
 
-const app = express();
-const port = 3010;
-
+let app = express();
 app.use(cors());
 
 //Server side values
@@ -68,8 +65,4 @@ app.get('/loyalty-points', (req, res) => {
   let purchaseAmount = parseFloat(req.query.purchaseAmount);
   let loyaltyPoints = purchaseAmount * loyaltyRate;
   res.send(loyaltyPoints.toString());
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
 });

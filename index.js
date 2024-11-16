@@ -1,5 +1,6 @@
 let express = require('express');
 let cors = require('cors');
+const port = 3000;
 
 let app = express();
 app.use(cors());
@@ -65,4 +66,9 @@ app.get('/loyalty-points', (req, res) => {
   let purchaseAmount = parseFloat(req.query.purchaseAmount);
   let loyaltyPoints = purchaseAmount * loyaltyRate;
   res.send(loyaltyPoints.toString());
+});
+
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
